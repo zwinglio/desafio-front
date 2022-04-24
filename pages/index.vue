@@ -16,7 +16,7 @@
             <NuxtLink
               :to="{
                 name: 'sheets-level',
-                params: { level: level.id, levelName: level.name },
+                params: { level: level.name.toLowerCase() },
               }"
               class="btn btn btn-danger w-100 mt-3 py-3 font-weight-bold"
             >

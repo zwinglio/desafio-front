@@ -60,8 +60,11 @@
             </div>
           </div>
         </div>
-        <NuxtLink class="btn btn-secondary w-100 my-3" :to="{ name: 'index' }">
-          Voltar
+        <NuxtLink
+          class="btn btn-secondary w-100 mt-5 py-3"
+          :to="{ name: 'index' }"
+        >
+          👈 Voltar
         </NuxtLink>
       </div>
     </div>
