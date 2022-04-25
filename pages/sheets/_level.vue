@@ -70,7 +70,7 @@ export default {
   },
   async fetch() {
     this.response = await this.$axios.get(
-      "https://desafio.voceemforma.net/api/sheets",
+      "https://apidesafio.voceemforma.net/api/sheets",
       {
         params: {
           sheet_level: this.level,

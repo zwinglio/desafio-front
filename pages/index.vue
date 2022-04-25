@@ -41,7 +41,7 @@ export default {
   },
   async fetch() {
     this.response = await this.$axios.$get(
-      "https://desafio.voceemforma.net/api/sheet_levels"
+      "https://apidesafio.voceemforma.net/api/sheet_levels"
     );
     this.levels = this.response.sheetLevels;
   },

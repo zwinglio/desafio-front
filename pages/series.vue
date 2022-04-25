@@ -61,7 +61,7 @@
           </div>
         </div>
         <NuxtLink
-          class="btn btn-secondary w-100 mt-5 py-3"
+          class="btn btn-secondary w-100 my-4 py-3"
           :to="{ name: 'index' }"
         >
           👈 Voltar
@@ -84,7 +84,7 @@ export default {
   },
   async fetch() {
     this.response = await this.$axios.$get(
-      "https://desafio.voceemforma.net/api/series"
+      "https://apidesafio.voceemforma.net/api/series"
     );
     this.series = this.response.data.filter(
       (series) => series.sheet.id === this.$route.params.sheet.id
