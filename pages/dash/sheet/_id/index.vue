@@ -84,7 +84,7 @@
                     <NuxtLink
                       :to="{
                         name: 'dash-sheet-exercise-edit',
-                        params: { exercise: exercise },
+                        params: { exercise: exercise, serie: serie },
                       }"
                       class="btn btn-sm btn-outline-primary"
                     >
