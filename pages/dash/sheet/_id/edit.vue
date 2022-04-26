@@ -61,10 +61,10 @@
 
           <button
             type="submit"
-            @click.prevent="createSheet"
+            @click.prevent="updateSheet"
             class="btn btn-success btn-lg my-3 w-100"
           >
-            Criar
+            Salvar Modificações
           </button>
         </form>
       </div>
@@ -79,6 +79,7 @@ export default {
   data() {
     return {
       sheet: {
+        id: "",
         title: "",
         instructions: "",
         place: "",
@@ -97,9 +98,17 @@ export default {
     };
   },
   methods: {
-    createSheet() {
+    updateSheet() {
       this.$axios
-        .post("https://apidesafio.voceemforma.net/api/sheets", this.sheet)
+        .post(
+          "https://apidesafio.voceemforma.net/api/sheets/" + this.sheet.id,
+          this.sheet,
+          {
+            params: {
+              _method: "PUT",
+            },
+          }
+        )
         .then((response) => {
           this.$router.push({
             name: "dash",
@@ -117,6 +126,15 @@ export default {
       //   level: this.sheet.level,
       // });
     },
+  },
+  async fetch() {
+    await this.$axios
+      .get(
+        "https://apidesafio.voceemforma.net/api/sheets/" + this.$route.params.id
+      )
+      .then((response) => {
+        this.sheet = response.data.sheet;
+      });
   },
 };
 </script>
