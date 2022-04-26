@@ -36,8 +36,9 @@
                         },
                       }"
                       class="btn btn-sm btn-danger"
-                      >Ver treino >></NuxtLink
                     >
+                      Ver treino >>
+                    </NuxtLink>
                   </div>
                 </div>
               </div>
