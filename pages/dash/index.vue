@@ -10,7 +10,7 @@
             }"
             class="btn btn-success"
           >
-            Adicionar
+            <i class="bi bi-plus-lg"></i>
           </NuxtLink>
         </div>
 
@@ -48,13 +48,14 @@
                     },
                   }"
                   class="btn btn-sm btn-info mt-2"
-                  >View</NuxtLink
                 >
+                  <i class="bi bi-search"></i>
+                </NuxtLink>
                 <button
                   @click="destroySheet(sheet.id)"
                   class="btn btn-sm btn-danger mt-2"
                 >
-                  Del
+                  <i class="bi bi-trash3"></i>
                 </button>
               </td>
             </tr>

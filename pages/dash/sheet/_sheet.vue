@@ -3,7 +3,9 @@
     <div class="row justify-content-center">
       <div class="col-lg-8">
         <div class="d-flex justify-content-left align-items-center">
-          <NuxtLink to="/dash" class="btn btn-secondary">Voltar</NuxtLink>
+          <NuxtLink to="/dash" class="btn btn-secondary">
+            <i class="bi bi-arrow-left"></i>
+          </NuxtLink>
           <h3 class="ml-3">{{ sheet.title }}</h3>
         </div>
 
@@ -54,13 +56,13 @@
                       }"
                       class="btn btn-primary mt-2"
                     >
-                      Adicionar Exercício
+                      <i class="bi bi-plus-lg"></i> Exercício
                     </NuxtLink>
                     <button
                       @click="destroySerie(serie.id)"
-                      class="btn btn-sm btn-outline-danger mt-2"
+                      class="btn btn btn-outline-danger mt-2"
                     >
-                      Deletar Serie
+                      <i class="bi bi-trash3"></i> Serie
                     </button>
                   </div>
                 </div>
@@ -86,13 +88,13 @@
                       }"
                       class="btn btn-sm btn-outline-primary"
                     >
-                      Editar
+                      <i class="bi bi-pencil-square"></i>
                     </NuxtLink>
                     <button
                       @click="destroyExercise(exercise.id)"
                       class="btn btn-sm btn-outline-danger"
                     >
-                      Excluir
+                      <i class="bi bi-trash3"></i>
                     </button>
                   </div>
                 </li>
@@ -108,9 +110,9 @@
                 sheet: sheet,
               },
             }"
-            class="btn btn-lg btn-primary w-100 my-3"
+            class="btn btn-lg py-3 btn-primary w-100 my-3"
           >
-            Adicionar Série
+            <i class="bi bi-plus-lg"></i> Série
           </NuxtLink>
         </div>
       </div>
