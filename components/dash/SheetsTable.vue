@@ -16,14 +16,27 @@
         <td class="text-right">
           <NuxtLink
             :to="{
-              name: 'dash-sheet-sheet',
+              name: 'dash-sheet-id',
               params: {
-                sheet: sheet.id,
+                id: sheet.id,
+                sheet: sheet,
               },
             }"
             class="btn btn-sm btn-info mt-2"
           >
             <i class="bi bi-search"></i>
+          </NuxtLink>
+          <NuxtLink
+            :to="{
+              name: 'dash-sheet-id-edit',
+              params: {
+                id: sheet.id,
+                sheet: sheet,
+              },
+            }"
+            class="btn btn-sm btn-primary mt-2"
+          >
+            <i class="bi bi-pencil-square"></i>
           </NuxtLink>
           <button
             @click="destroySheet(sheet.id)"
