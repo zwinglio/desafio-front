@@ -4,7 +4,12 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-8 text-center">
-            <img src="/img/logo.png" alt="" class="w-75" />
+            <nuxt-img
+              format="webp"
+              src="/img/logo.png"
+              quality="80"
+              class="w-100"
+            />
           </div>
         </div>
       </div>
