@@ -8,6 +8,7 @@
               format="webp"
               src="/img/logo.png"
               quality="80"
+              width="550"
               class="w-75"
             />
           </div>
