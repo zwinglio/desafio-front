@@ -69,9 +69,7 @@ export default {
     };
   },
   async fetch() {
-    this.response = await this.$axios.get(
-      "https://apidesafio.voceemforma.net/api/sheets"
-    );
+    this.response = await this.$axios.get("/sheets");
     this.sheets = this.response.data.data.filter(
       (sheet) => sheet.sheet_level.id === this.$route.params.level
     );

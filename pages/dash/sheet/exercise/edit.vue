@@ -94,16 +94,11 @@ export default {
   methods: {
     updateExercise() {
       this.$axios
-        .post(
-          "https://apidesafio.voceemforma.net/api/exercises/" +
-            this.$route.params.exercise.id,
-          this.exercise,
-          {
-            params: {
-              _method: "PUT",
-            },
-          }
-        )
+        .post("/exercises/" + this.$route.params.exercise.id, this.exercise, {
+          params: {
+            _method: "PUT",
+          },
+        })
         .then((response) => {
           this.$router.push({
             name: "dash-sheet-id",

@@ -40,9 +40,7 @@ export default {
     };
   },
   async fetch() {
-    this.response = await this.$axios.$get(
-      "https://apidesafio.voceemforma.net/api/sheet_levels"
-    );
+    this.response = await this.$axios.$get("/sheet_levels");
     this.levels = this.response.sheetLevels;
   },
 };

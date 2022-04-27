@@ -99,7 +99,7 @@ export default {
   methods: {
     createSheet() {
       this.$axios
-        .post("https://apidesafio.voceemforma.net/api/sheets", this.sheet)
+        .post("/sheets", this.sheet)
         .then((response) => {
           this.$router.push({
             name: "dash",

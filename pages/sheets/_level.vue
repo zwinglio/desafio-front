@@ -69,14 +69,11 @@ export default {
     };
   },
   async fetch() {
-    this.response = await this.$axios.get(
-      "https://apidesafio.voceemforma.net/api/sheets",
-      {
-        params: {
-          sheet_level: this.level,
-        },
-      }
-    );
+    this.response = await this.$axios.get("/sheets", {
+      params: {
+        sheet_level: this.level,
+      },
+    });
     this.sheets = this.response.data.data;
   },
 };

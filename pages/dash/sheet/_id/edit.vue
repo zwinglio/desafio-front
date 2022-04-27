@@ -129,9 +129,7 @@ export default {
   },
   async fetch() {
     await this.$axios
-      .get(
-        "https://apidesafio.voceemforma.net/api/sheets/" + this.$route.params.id
-      )
+      .get("/sheets/" + this.$route.params.id)
       .then((response) => {
         this.sheet = response.data.sheet;
       });

@@ -89,7 +89,7 @@ export default {
   methods: {
     createSerie() {
       this.$axios
-        .post("https://apidesafio.voceemforma.net/api/series", this.serie)
+        .post("/series", this.serie)
         .then((response) => {
           this.$router.push({
             name: "dash-sheet-sheet",

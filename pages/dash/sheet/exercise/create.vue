@@ -96,7 +96,7 @@ export default {
   methods: {
     createExercise() {
       this.$axios
-        .post("https://apidesafio.voceemforma.net/api/exercises", this.exercise)
+        .post("/exercises", this.exercise)
         .then((response) => {
           this.$router.push({
             name: "dash-sheet-sheet",
@@ -108,14 +108,6 @@ export default {
         .catch((error) => {
           console.log(error);
         });
-
-      //   console.log("createSheet");
-      // this.$store.dispatch("createSheet", {
-      //   title: this.sheet.title,
-      //   instructions: this.sheet.instructions,
-      //   place: this.sheet.place,
-      //   level: this.sheet.level,
-      // });
     },
   },
 };

@@ -132,12 +132,10 @@ export default {
   },
   async fetch() {
     const series = await this.$axios.get(
-      `https://apidesafio.voceemforma.net/api/series?sheet_id=${this.$route.params.id}`
+      `/series?sheet_id=${this.$route.params.id}`
     );
 
-    const sheet = await this.$axios.get(
-      `https://apidesafio.voceemforma.net/api/sheets/${this.$route.params.id}`
-    );
+    const sheet = await this.$axios.get(`/sheets/${this.$route.params.id}`);
 
     this.series = series.data.data;
     this.sheet = sheet.data.sheet;

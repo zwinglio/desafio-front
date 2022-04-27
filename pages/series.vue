@@ -84,8 +84,7 @@ export default {
   },
   async fetch() {
     this.response = await this.$axios.$get(
-      "https://apidesafio.voceemforma.net/api/series?sheet_id=" +
-        this.$route.params.sheet.id
+      "/series?sheet_id=" + this.$route.params.sheet.id
     );
     this.series = this.response.data;
   },
