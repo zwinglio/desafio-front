@@ -4,10 +4,9 @@
       <div class="col-lg-8">
         <p>
           Você está vendo:<br />
-          <span class="small">
-            {{ sheet.title }} | {{ sheet.place }} |
-            {{ sheet.sheet_level.name }}
-          </span>
+          <span v-if="sheet" class="small">
+            {{ sheet.title }} | {{ sheet.place }}</span
+          >
         </p>
       </div>
     </div>
@@ -60,10 +59,7 @@
             </div>
           </div>
         </div>
-        <NuxtLink
-          class="btn btn-secondary w-100 my-4 py-3"
-          :to="{ name: 'index' }"
-        >
+        <NuxtLink class="btn btn-secondary w-100 my-4 py-3" to="/">
           👈 Voltar
         </NuxtLink>
       </div>
@@ -78,15 +74,20 @@ export default {
   data() {
     return {
       response: [],
-      sheet: this.$route.params.sheet,
+      sheet: {},
       series: [],
+      hasSeries: false,
+      hasSheet: false,
     };
   },
   async fetch() {
-    this.response = await this.$axios.$get(
-      "/series?sheet_id=" + this.$route.params.sheet.id
+    let sheet = await this.$axios.$get("/sheets/" + this.$route.params.sheet);
+    this.sheet = sheet.sheet;
+
+    let series = await this.$axios.$get(
+      "/series?sheet_id=" + this.$route.params.sheet
     );
-    this.series = this.response.data;
+    this.series = series.data;
   },
 };
 </script>

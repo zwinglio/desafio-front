@@ -32,9 +32,9 @@
                 <div class="text-right">
                   <NuxtLink
                     :to="{
-                      name: 'series',
+                      name: 'sheet-sheet',
                       params: {
-                        sheet: sheet,
+                        sheet: sheet.id,
                       },
                     }"
                     class="btn btn-sm btn-danger"

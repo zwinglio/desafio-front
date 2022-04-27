@@ -16,7 +16,7 @@
         <!-- Conteúdo -->
         <div v-if="!$fetchState.pending">
           <h3>Lista de treinos</h3>
-          <h4>{{ levelName }}</h4>
+          <h4>{{ level }}</h4>
           <hr />
 
           <div v-for="sheet in sheets">
@@ -63,16 +63,18 @@ export default {
   transition: "fade",
   data() {
     return {
-      levelName: this.$route.params.levelName,
+      level: this.$route.params.level,
       response: [],
       sheets: [],
     };
   },
   async fetch() {
-    this.response = await this.$axios.get("/sheets");
-    this.sheets = this.response.data.data.filter(
-      (sheet) => sheet.sheet_level.id === this.$route.params.level
-    );
+    let response = await this.$axios.get("/sheets", {
+      params: {
+        sheet_level: this.$route.params.level,
+      },
+    });
+    this.sheets = response.data.data;
   },
 };
 </script>

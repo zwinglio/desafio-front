@@ -15,7 +15,7 @@
           <div v-for="level in levels">
             <NuxtLink
               :to="{
-                name: 'sheets-level',
+                name: 'level-level',
                 params: { level: level.name.toLowerCase() },
               }"
               class="btn btn btn-danger w-100 mt-3 py-3 font-weight-bold"
