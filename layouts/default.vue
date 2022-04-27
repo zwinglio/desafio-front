@@ -8,7 +8,7 @@
               format="webp"
               src="/img/logo.png"
               quality="80"
-              class="w-100"
+              class="w-75"
             />
           </div>
         </div>
