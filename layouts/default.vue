@@ -2,14 +2,13 @@
   <div class="content mt-4">
     <section id="header">
       <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-8 text-center">
+        <div class="row justify-content-center text-center mb-4">
+          <div class="col-lg-8">
             <nuxt-img
               format="webp"
               src="/img/logo.png"
-              quality="80"
-              width="550"
-              class="w-75"
+              quality="30"
+              width="350"
             />
           </div>
         </div>
