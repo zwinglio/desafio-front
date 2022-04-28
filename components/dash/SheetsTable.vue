@@ -58,11 +58,6 @@ export default {
       required: true,
     },
   },
-  data() {
-    return {
-      sheets: [],
-    };
-  },
   methods: {
     destroySheet(id) {
       //alert user
