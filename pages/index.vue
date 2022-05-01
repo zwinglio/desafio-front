@@ -40,7 +40,7 @@ export default {
     };
   },
   async fetch() {
-    this.response = await this.$axios.$get("/sheet_levels");
+    this.response = await this.$axios.$get("/levels");
     this.levels = this.response.sheetLevels;
   },
 };

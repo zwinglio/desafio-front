@@ -81,13 +81,14 @@ export default {
     };
   },
   async fetch() {
-    let sheet = await this.$axios.$get("/sheets/" + this.$route.params.sheet);
+    let sheetUri = `/sheets/${this.$route.params.sheet}`;
+    let seriesUri = `/sheets/${this.$route.params.sheet}/series`;
+
+    let sheet = await this.$axios.$get(sheetUri);
     this.sheet = sheet.sheet;
 
-    let series = await this.$axios.$get(
-      "/series?sheet_id=" + this.$route.params.sheet
-    );
-    this.series = series.data;
+    let series = await this.$axios.$get(seriesUri);
+    this.series = series.series;
   },
 };
 </script>
