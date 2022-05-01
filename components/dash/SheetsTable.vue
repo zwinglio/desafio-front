@@ -11,7 +11,7 @@
     <tbody>
       <tr v-for="sheet in sheets">
         <th scope="row">{{ sheet.id }}</th>
-        <td>{{ sheet.sheet_level.name }}</td>
+        <td>{{ sheet.level.name }}</td>
         <td>{{ sheet.title }}</td>
         <td class="text-right">
           <NuxtLink
@@ -62,11 +62,9 @@ export default {
     destroySheet(id) {
       //alert user
       if (confirm("Deseja realmente excluir?")) {
-        this.$axios
-          .delete(`https://apidesafio.voceemforma.net/api/sheets/${id}`)
-          .then((response) => {
-            this.$nuxt.refresh();
-          });
+        this.$axios.delete(`/sheets/${id}`).then((response) => {
+          this.$nuxt.refresh();
+        });
       }
     },
   },

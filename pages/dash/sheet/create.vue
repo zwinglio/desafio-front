@@ -3,12 +3,8 @@
     <div class="row justify-content-center">
       <div class="col-lg-8">
         <div class="d-flex justify-content-between">
-          <h2 class="m-0">Criar novo treino</h2>
+          <h2 class="m-0">Criar nova lista de treino 📋</h2>
         </div>
-        <pre class="text-light mt-3">
-            {{ sheet }}
-          </pre
-        >
         <form class="mt-4">
           <div class="form-group">
             <label for="title">Título</label>
@@ -33,6 +29,17 @@
           </div>
 
           <div class="form-group">
+            <label for="week">Semana</label>
+            <input
+              type="number"
+              class="form-control form-control-lg"
+              name="week"
+              id="week"
+              v-model="sheet.week"
+            />
+          </div>
+
+          <div class="form-group">
             <label for="place">Local</label>
             <select
               class="form-control form-control-lg"
@@ -51,7 +58,7 @@
               class="form-control form-control-lg"
               name="level"
               id="level"
-              v-model="sheet.sheet_level_id"
+              v-model="sheet.level_id"
             >
               <option v-for="level in levels" :value="level.id" :key="level.id">
                 {{ level.name }}
@@ -64,7 +71,7 @@
             @click.prevent="createSheet"
             class="btn btn-success btn-lg my-3 w-100"
           >
-            Criar
+            Criar lista de treino
           </button>
         </form>
       </div>
@@ -82,7 +89,8 @@ export default {
         title: "",
         instructions: "",
         place: "",
-        sheet_level_id: "",
+        week: "",
+        level_id: "",
       },
       levels: [
         {
@@ -105,17 +113,10 @@ export default {
             name: "dash",
           });
         })
-        .catch((error) => {
+        .catch((error, response) => {
           console.log(error);
+          console.log(response);
         });
-
-      console.log("createSheet");
-      // this.$store.dispatch("createSheet", {
-      //   title: this.sheet.title,
-      //   instructions: this.sheet.instructions,
-      //   place: this.sheet.place,
-      //   level: this.sheet.level,
-      // });
     },
   },
 };

@@ -2,18 +2,13 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-8">
-        <div class="d-flex justify-content-between">
-          <h2 class="m-0">Criar nova série</h2>
+        <div class="d-flex justify-content-between align-items-center">
+          <!-- <NuxtLink :to="'/dash/sheet/' + sheet.id" class="btn btn-secondary">
+            <i class="bi bi-arrow-left"></i>
+          </NuxtLink> -->
+          <h2 class="m-0">Editar Exercício 💪</h2>
+          <p class="small">{{ exercise.title }}</p>
         </div>
-        <pre class="text-light mt-3">
-            {{ serie }}
-          </pre
-        >
-
-        <pre class="text-light mt-3">
-            {{ exercise }}
-          </pre
-        >
         <form class="mt-4">
           <div class="form-group">
             <label for="title">Título</label>
@@ -57,7 +52,7 @@
               disabled
               v-model="exercise.serie_id"
             >
-              <option :value="serie.id">
+              <option :value="exercise.serie_id">
                 {{ serie.title }}
               </option>
             </select>
@@ -83,27 +78,35 @@ export default {
   data() {
     return {
       exercise: {
+        id: this.$route.params.exercise.id,
         title: this.$route.params.exercise.title,
         instructions: this.$route.params.exercise.instructions,
         repetitions: this.$route.params.exercise.repetitions,
         serie_id: this.$route.params.serie.id,
       },
-      serie: this.$route.params.serie,
+      serie: {
+        id: this.$route.params.serie.id,
+        title: this.$route.params.serie.title,
+      },
     };
   },
   methods: {
     updateExercise() {
       this.$axios
-        .post("/exercises/" + this.$route.params.exercise.id, this.exercise, {
-          params: {
-            _method: "PUT",
-          },
-        })
+        .post(
+          `sheets/${this.$route.params.id}/series/${this.serie.id}/exercises/${this.exercise.id}`,
+          this.exercise,
+          {
+            params: {
+              _method: "PUT",
+            },
+          }
+        )
         .then((response) => {
           this.$router.push({
             name: "dash-sheet-id",
             params: {
-              id: this.serie.sheet.id,
+              id: this.$route.params.id,
             },
           });
         })

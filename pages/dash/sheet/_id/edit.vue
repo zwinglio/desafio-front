@@ -3,12 +3,8 @@
     <div class="row justify-content-center">
       <div class="col-lg-8">
         <div class="d-flex justify-content-between">
-          <h2 class="m-0">Criar novo treino</h2>
+          <h2 class="m-0">Editar lista de treinos 📋</h2>
         </div>
-        <pre class="text-light mt-3">
-            {{ sheet }}
-          </pre
-        >
         <form class="mt-4">
           <div class="form-group">
             <label for="title">Título</label>
@@ -33,6 +29,17 @@
           </div>
 
           <div class="form-group">
+            <label for="week">Semana</label>
+            <input
+              type="number"
+              class="form-control form-control-lg"
+              name="week"
+              id="week"
+              v-model="sheet.week"
+            />
+          </div>
+
+          <div class="form-group">
             <label for="place">Local</label>
             <select
               class="form-control form-control-lg"
@@ -51,7 +58,7 @@
               class="form-control form-control-lg"
               name="level"
               id="level"
-              v-model="sheet.sheet_level_id"
+              v-model="sheet.level_id"
             >
               <option v-for="level in levels" :value="level.id" :key="level.id">
                 {{ level.name }}
@@ -79,11 +86,12 @@ export default {
   data() {
     return {
       sheet: {
-        id: "",
-        title: "",
-        instructions: "",
-        place: "",
-        sheet_level_id: "",
+        id: this.$route.params.sheet.id,
+        title: this.$route.params.sheet.title,
+        instructions: this.$route.params.sheet.instructions,
+        week: this.$route.params.sheet.week,
+        place: this.$route.params.sheet.place,
+        level_id: this.$route.params.sheet.level.id,
       },
       levels: [
         {
@@ -100,15 +108,11 @@ export default {
   methods: {
     updateSheet() {
       this.$axios
-        .post(
-          "https://apidesafio.voceemforma.net/api/sheets/" + this.sheet.id,
-          this.sheet,
-          {
-            params: {
-              _method: "PUT",
-            },
-          }
-        )
+        .post("/sheets/" + this.sheet.id, this.sheet, {
+          params: {
+            _method: "PUT",
+          },
+        })
         .then((response) => {
           this.$router.push({
             name: "dash",
@@ -117,22 +121,12 @@ export default {
         .catch((error) => {
           console.log(error);
         });
-
-      console.log("createSheet");
-      // this.$store.dispatch("createSheet", {
-      //   title: this.sheet.title,
-      //   instructions: this.sheet.instructions,
-      //   place: this.sheet.place,
-      //   level: this.sheet.level,
-      // });
     },
   },
-  async fetch() {
-    await this.$axios
-      .get("/sheets/" + this.$route.params.id)
-      .then((response) => {
-        this.sheet = response.data.sheet;
-      });
+  computed: {
+    levelId() {
+      return this.sheet.level.id;
+    },
   },
 };
 </script>

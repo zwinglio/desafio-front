@@ -51,15 +51,15 @@
                   <div>
                     <NuxtLink
                       :to="{
-                        name: 'dash-sheet-exercise-create',
-                        params: { serie: serie },
+                        name: 'dash-sheet-id-exercise-create',
+                        params: { id: sheet.id, serie: serie },
                       }"
                       class="btn btn-primary mt-2"
                     >
                       <i class="bi bi-plus-lg"></i> Exercício
                     </NuxtLink>
                     <button
-                      @click="destroySerie(serie.id)"
+                      @click="destroySerie(sheet.id, serie.id)"
                       class="btn btn btn-outline-danger mt-2"
                     >
                       <i class="bi bi-trash3"></i> Serie
@@ -83,15 +83,19 @@
                   <div>
                     <NuxtLink
                       :to="{
-                        name: 'dash-sheet-exercise-edit',
-                        params: { exercise: exercise, serie: serie },
+                        name: 'dash-sheet-id-exercise-edit',
+                        params: {
+                          id: sheet.id,
+                          exercise: exercise,
+                          serie: serie,
+                        },
                       }"
                       class="btn btn-sm btn-outline-primary"
                     >
                       <i class="bi bi-pencil-square"></i>
                     </NuxtLink>
                     <button
-                      @click="destroyExercise(exercise.id)"
+                      @click="destroyExercise(sheet.id, serie.id, exercise.id)"
                       class="btn btn-sm btn-outline-danger"
                     >
                       <i class="bi bi-trash3"></i>
@@ -105,8 +109,9 @@
         <div v-if="!$fetchState.pending && !$fetchState.error">
           <NuxtLink
             :to="{
-              name: 'dash-sheet-serie-create',
+              name: 'dash-sheet-id-serie-create',
               params: {
+                id: sheet.id,
                 sheet: sheet,
               },
             }"
@@ -131,34 +136,26 @@ export default {
     };
   },
   async fetch() {
-    const series = await this.$axios.get(
-      `/series?sheet_id=${this.$route.params.id}`
-    );
-
     const sheet = await this.$axios.get(`/sheets/${this.$route.params.id}`);
 
-    this.series = series.data.data;
+    this.series = sheet.data.sheet.series;
     this.sheet = sheet.data.sheet;
   },
   methods: {
-    destroyExercise(exercise) {
+    destroyExercise(sheet, serie, exercise) {
       if (confirm("Deseja realmente excluir o exercício?")) {
         this.$axios
-          .delete(
-            `https://apidesafio.voceemforma.net/api/exercises/${exercise}`
-          )
+          .delete(`/sheets/${sheet}/series/${serie}/exercises/${exercise}`)
           .then(() => {
             this.$nuxt.refresh();
           });
       }
     },
-    destroySerie(serie) {
+    destroySerie(sheet, serie) {
       if (confirm("Deseja realmente excluir a série?")) {
-        this.$axios
-          .delete(`https://apidesafio.voceemforma.net/api/series/${serie}`)
-          .then(() => {
-            this.$nuxt.refresh();
-          });
+        this.$axios.delete(`/sheets/${sheet}/series/${serie}`).then(() => {
+          this.$nuxt.refresh();
+        });
       }
     },
   },

@@ -3,12 +3,8 @@
     <div class="row justify-content-center">
       <div class="col-lg-8">
         <div class="d-flex justify-content-between">
-          <h2 class="m-0">Criar nova série</h2>
+          <h2 class="m-0">Criar novo exercício 💪</h2>
         </div>
-        <pre class="text-light mt-3">
-            {{ serie }}
-          </pre
-        >
         <form class="mt-4">
           <div class="form-group">
             <label for="title">Título</label>
@@ -17,7 +13,7 @@
               class="form-control form-control-lg"
               name="title"
               id="title"
-              v-model="serie.title"
+              v-model="exercise.title"
             />
           </div>
 
@@ -28,7 +24,7 @@
               class="form-control form-control-lg"
               name="instructions"
               id="instructions"
-              v-model="serie.instructions"
+              v-model="exercise.instructions"
             />
           </div>
 
@@ -39,7 +35,7 @@
               class="form-control form-control-lg"
               name="repetitions"
               id="repetitions"
-              v-model="serie.repetitions"
+              v-model="exercise.repetitions"
             />
           </div>
 
@@ -50,17 +46,17 @@
               name="sheet_id"
               id="sheet_id"
               disabled
-              v-model="serie.sheet_id"
+              v-model="exercise.serie_id"
             >
-              <option :value="sheet.id">
-                {{ sheet.title }}
+              <option :value="serie.id">
+                {{ serie.title }}
               </option>
             </select>
           </div>
 
           <button
             type="submit"
-            @click.prevent="createSerie"
+            @click.prevent="createExercise"
             class="btn btn-success btn-lg my-3 w-100"
           >
             Criar
@@ -73,42 +69,37 @@
 
 <script>
 export default {
-  name: "SerieCreatePage",
+  name: "ExerciseCreatePage",
   transition: "fade",
   data() {
     return {
-      serie: {
+      exercise: {
         title: "",
         instructions: "",
         repetitions: "",
-        sheet_id: this.$route.params.sheet.id,
+        serie_id: this.$route.params.serie.id,
       },
-      sheet: this.$route.params.sheet,
+      serie: this.$route.params.serie,
     };
   },
   methods: {
-    createSerie() {
+    createExercise() {
       this.$axios
-        .post("/series", this.serie)
+        .post(
+          `/sheets/${this.$route.params.id}/series/${this.serie.id}/exercises  `,
+          this.exercise
+        )
         .then((response) => {
           this.$router.push({
-            name: "dash-sheet-sheet",
+            name: "dash-sheet-id",
             params: {
-              sheet: this.serie.sheet_id,
+              id: this.$route.params.id,
             },
           });
         })
         .catch((error) => {
           console.log(error);
         });
-
-      //   console.log("createSheet");
-      // this.$store.dispatch("createSheet", {
-      //   title: this.sheet.title,
-      //   instructions: this.sheet.instructions,
-      //   place: this.sheet.place,
-      //   level: this.sheet.level,
-      // });
     },
   },
 };
