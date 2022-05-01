@@ -6,7 +6,12 @@
           <NuxtLink to="/dash" class="btn btn-secondary">
             <i class="bi bi-arrow-left"></i>
           </NuxtLink>
-          <h3 class="ml-3">{{ sheet.title }}</h3>
+          <div class="">
+            <h3 class="ml-3">
+              {{ sheet.title }}
+              / Semana {{ sheet.week }}
+            </h3>
+          </div>
         </div>
 
         <div v-if="$fetchState.pending">

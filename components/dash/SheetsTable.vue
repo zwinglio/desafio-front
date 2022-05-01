@@ -4,7 +4,7 @@
       <tr>
         <th scope="col">ID</th>
         <th scope="col">Nível</th>
-        <th scope="col">Treino</th>
+        <th scope="col">Título</th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -12,7 +12,10 @@
       <tr v-for="sheet in sheets">
         <th scope="row">{{ sheet.id }}</th>
         <td>{{ sheet.level.name }}</td>
-        <td>{{ sheet.title }}</td>
+        <td>
+          {{ sheet.title }}
+          <b-badge variant="danger">Semana {{ sheet.week }}</b-badge>
+        </td>
         <td class="text-right">
           <NuxtLink
             :to="{
