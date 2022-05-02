@@ -3,7 +3,6 @@
     <thead>
       <tr>
         <th scope="col">ID</th>
-        <th scope="col">Nível</th>
         <th scope="col">Título</th>
         <th scope="col"></th>
       </tr>
@@ -11,11 +10,11 @@
     <tbody>
       <tr v-for="sheet in sheets">
         <th scope="row">{{ sheet.id }}</th>
-        <td>{{ sheet.level.name }}</td>
         <td>
           {{ sheet.title }}
           <b-badge variant="danger">Semana {{ sheet.week }}</b-badge>
           <b-badge variant="primary">{{ sheet.place }}</b-badge>
+          <b-badge variant="info">{{ sheet.level.name }}</b-badge>
         </td>
         <td class="text-right">
           <NuxtLink
