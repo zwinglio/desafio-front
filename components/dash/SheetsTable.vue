@@ -15,6 +15,7 @@
         <td>
           {{ sheet.title }}
           <b-badge variant="danger">Semana {{ sheet.week }}</b-badge>
+          <b-badge variant="primary">{{ sheet.place }}</b-badge>
         </td>
         <td class="text-right">
           <NuxtLink
