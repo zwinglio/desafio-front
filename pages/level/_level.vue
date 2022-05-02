@@ -25,10 +25,12 @@
           <div class="card mt-4">
             <div class="card-body">
               <div class="card-title">
-                <h5 class="text-dark">{{ sheet.title }}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">
-                  {{ sheet.place }}
-                </h6>
+                <div>
+                  <h5 class="text-dark">{{ sheet.title }}</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">
+                    {{ sheet.place }} - {{ sheet.week }}ª semana
+                  </h6>
+                </div>
                 <div class="text-right">
                   <NuxtLink
                     :to="{
@@ -37,9 +39,10 @@
                         sheet: sheet.id,
                       },
                     }"
-                    class="btn btn-sm btn-danger"
-                    >Ver treino >></NuxtLink
+                    class="btn btn-sm btn-danger py-2 mt-2 w-100"
                   >
+                    Ver treino >>
+                  </NuxtLink>
                 </div>
               </div>
             </div>
