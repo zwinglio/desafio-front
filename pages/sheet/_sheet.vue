@@ -43,7 +43,11 @@
                   Repetições: {{ serie.repetitions }}
                 </h6>
               </div>
-              <ul v-for="exercise in serie.exercises" class="text-dark">
+              <ul
+                v-for="exercise in serie.exercises"
+                :key="exercise.id"
+                class="text-dark"
+              >
                 <li>
                   <p class="mb-0 text-uppercase font-weight-bold">
                     {{ exercise.title }}
@@ -59,7 +63,10 @@
             </div>
           </div>
         </div>
-        <NuxtLink class="btn btn-secondary w-100 my-4 py-3" to="/">
+        <NuxtLink
+          class="btn btn-secondary w-100 my-4 py-3"
+          :to="'/level/' + sheet.level.name"
+        >
           👈 Voltar
         </NuxtLink>
       </div>
@@ -74,7 +81,16 @@ export default {
   data() {
     return {
       response: [],
-      sheet: {},
+      sheet: {
+        id: null,
+        title: null,
+        place: null,
+        week: null,
+        instructions: null,
+        level: {
+          name: null,
+        },
+      },
       series: [],
       hasSeries: false,
       hasSheet: false,
