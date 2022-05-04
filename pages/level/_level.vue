@@ -7,11 +7,11 @@
         <hr /> -->
 
         <h3>Treinos por Semana</h3>
-        <h4>{{ level }}</h4>
+        <h4>{{ sheets[0].level.name }}</h4>
         <hr />
 
         <!-- for every week a card -->
-        <div v-for="(week, index) in weeks" class="card text-dark">
+        <div v-for="(week, index) in weeks" class="card text-dark mt-4">
           <div class="card-header">
             <h4>Semana 0{{ index + 1 }}</h4>
           </div>
