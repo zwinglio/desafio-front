@@ -7,7 +7,7 @@
         <hr /> -->
 
         <h3>Treinos por Semana</h3>
-        <h4>{{ sheets[0].level.name }}</h4>
+        <h4>{{ this.$route.params.level }}</h4>
         <hr />
 
         <!-- for every week a card -->
