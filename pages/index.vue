@@ -1,47 +1,23 @@
 <template>
-  <div class="container mt-4">
-    <div class="row justify-content-center">
-      <div class="col-lg-8 text-center">
-        <div v-if="$fetchState.pending">
-          <b-spinner
-            label="Carregando treinos..."
-            variant="danger"
-            type="grow"
-          ></b-spinner>
-        </div>
-
-        <div v-if="!$fetchState.pending">
-          <h3>Selecione o seu nível!</h3>
-          <div v-for="level in levels">
-            <NuxtLink
-              :to="{
-                name: 'level-level',
-                params: { level: level.name.toLowerCase() },
-              }"
-              class="btn btn btn-danger w-100 mt-3 py-3 font-weight-bold"
-            >
-              {{ level.name }}
-            </NuxtLink>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+    <SectionsPromise />    
+    <SectionsPlausibility /> 
+    <SectionsProgression/>    
+    <SectionsAuthority />    
+    <SectionsSocialproof />    
+    <SectionsDeliverables />    
+    <SectionsFaq />    
+    <SectionsFooter />    
 </template>
 
-<script>
-export default {
-  name: "IndexPage",
-  layout: "default",
-  data() {
-    return {
-      levels: [],
-      response: [],
-    };
-  },
-  async fetch() {
-    this.response = await this.$axios.$get("/levels");
-    this.levels = this.response.sheetLevels;
-  },
-};
+<script setup>
+useHead({
+    title: 'Desafio 30 Dias - Carina, Sabrina e Letícia',
+    meta: [
+    { 
+        name: 'description',
+        content: 'Desafio de 30 dias para recuperar sua autoestima, perder peso e ganhar massa magra! Acompanhamento diário via WhatsApp, planilhas de treinos personalizadas e orientações de dieta específicas para seu objetivo. Com suporte quando precisar e sem complicados aplicativos. Este desafio é dinâmico e considera seu ponto de partida. Ideal para iniciantes, intermediários e avançados. Aproveite as experiências de Carina Rosin, Sabrina Viana e Maria Letícia, especialistas no campo da saúde e bem-estar.'
+    },
+  ],
+
+})
 </script>
