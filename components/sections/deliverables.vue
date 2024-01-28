@@ -20,7 +20,7 @@
                 <div class="w-100 text-center my-3">
                                             <img src="https://voceemforma.net/img/desafio/preco.png" alt="">
                                     </div>
-                <div class="countdown w-100 text-center bg-warning text-dark fw-bold py-4 px-3 rounded-3">Inscrições encerradas!</div>
+                <div class="countdown w-100 text-center bg-warning text-dark fw-bold py-4 px-3 rounded-3">As inscrições começaram na quarta-feira de cinzas!</div>
                                     <a type="button" href="#modalCheckout" class="btn btn-lg btn-danger w-100 py-3 mt-4" data-bs-toggle="modal">Quero fazer parte!</a>
                             </div>
         </div>
