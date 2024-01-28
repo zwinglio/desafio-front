@@ -62,4 +62,8 @@
     #faq {
   background-color: #100E0F;
 }
+
+#faq h2 {
+    zoom: 90%;
+}
 </style>
