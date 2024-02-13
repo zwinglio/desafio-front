@@ -26,8 +26,6 @@
                             loading="lazy"
                         />
                     </div>
-                    <div class="countdown w-100 text-center bg-warning text-dark fw-bold py-4 px-3 rounded-3">As inscrições
-                        começaram na quarta-feira de cinzas!</div>
                     <a
                         href="#modalCheckout"
                         class="btn btn-lg btn-danger w-100 py-3 mt-4"
