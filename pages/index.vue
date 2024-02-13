@@ -7,6 +7,7 @@
     <SectionsDeliverables />    
     <SectionsFaq />    
     <SectionsFooter />    
+    <SectionsModalCheckout />
 </template>
 
 <script setup>

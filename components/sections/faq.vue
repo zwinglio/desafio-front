@@ -3,17 +3,17 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-10">
-                <h2>Peguntas frequentes sobre o desafio de 40 dias</h2>
+                <h2>Peguntas frequentes sobre o desafio de 30 dias</h2>
                                     <h3 class="mt-5">
                         <i class="bi bi-arrow-down-right-circle-fill me-2"></i>
                         <a href="#faq-1" class="text-decoration-none text-white" data-bs-toggle="collapse">
-                            Como eu acesso o desafio de 40 dias?
+                            Como eu acesso o desafio de 30 dias?
                         </a>
                     </h3>
                     <hr>
                     <div id="faq-1" class="collapse">
                         <p>
-                            Toda a comunicação do Desafio de 40 Dias vai acontecer via WhatsApp. Isso quer dizer que você será adicionada a um grupo exclusivo. Não se preocupa, nossos administradores farão isso pra você.
+                            Toda a comunicação do Desafio de 30 Dias vai acontecer via WhatsApp. Isso quer dizer que você será adicionada a um grupo exclusivo. Não se preocupa, nossos administradores farão isso pra você.
                         </p>
                     </div>
                                     <h3 class="mt-5">
@@ -37,7 +37,7 @@
                     <hr>
                     <div id="faq-3" class="collapse">
                         <p>
-                            O desafio dura 40 dias, depois disso o grupo será dissolvido. Mas você ainda terá acesso ao conteúdo que você baixou durante esses dias.
+                            O desafio dura 30 dias, depois disso o grupo será dissolvido. Mas você ainda terá acesso ao conteúdo que você baixou durante esses dias.
                         </p>
                     </div>
                                     <h3 class="mt-5">
@@ -61,5 +61,9 @@
 <style lang="css">
     #faq {
   background-color: #100E0F;
+}
+
+#faq h2 {
+    zoom: 90%;
 }
 </style>

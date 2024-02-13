@@ -48,6 +48,8 @@
                         alt=""
                         :imgAttrs="{ class: 'w-100' }"
                         data-aos="zoom-in" data-aos-delay="400"
+                        format="webp"
+                        loading="lazy"
                     />
                 </div>
             </div>
